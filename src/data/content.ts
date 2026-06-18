@@ -100,7 +100,7 @@ export const projects: Project[] = [
       "Claude Code plugin + Cloudflare Worker that renders agent output as styled HTML pages — shadcn/ui, Mermaid, charts, search, versioning.",
     image: "/projects/agent-html.png",
     repoUrl: "https://github.com/gabrielbryk/agent-html",
-    liveUrl: "https://share.gabebryk.com",
+    liveUrl: "https://share.gridlink.dev",
   },
   {
     title: "agents",
@@ -125,10 +125,10 @@ export const projects: Project[] = [
     title: "Status Page",
     category: "Infra",
     tag: "INFRASTRUCTURE",
-    description: "Uptime monitor and status page for my self-hosted services, powered by Upptime.",
+    description: "Live status page with uptime monitoring and response-time history for production services.",
     image: "/projects/status.png",
     repoUrl: "https://github.com/gabrielbryk/vigilant-octo-carnival",
-    liveUrl: "https://status.gabebryk.com",
+    liveUrl: "https://status.gridlink.co",
   },
 ];
 
