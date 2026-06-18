@@ -34,6 +34,17 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <noscript>
+      <!-- Content is prerendered but starts visually hidden via Motion's
+           initial opacity/transform state until JS hydrates. For no-JS
+           visitors and JS-light crawlers, force it visible. -->
+      <style>
+        #root * {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
