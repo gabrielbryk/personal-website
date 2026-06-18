@@ -168,6 +168,25 @@ export const experience: Experience[] = [
   },
 ];
 
+export type Education = {
+  school: string;
+  degree: string;
+  detail: string; // e.g. graduation year or status
+};
+
+export const education: Education[] = [
+  {
+    school: "ILLINOIS INSTITUTE OF TECHNOLOGY",
+    degree: "M.S. Cybersecurity",
+    detail: "In progress",
+  },
+  {
+    school: "ILLINOIS INSTITUTE OF TECHNOLOGY",
+    degree: "B.S. Computer Science",
+    detail: "2023",
+  },
+];
+
 export type Blog = {
   category: string;
   date: string;
@@ -177,16 +196,7 @@ export type Blog = {
 };
 
 // Kept for when there's writing to publish. Section is hidden via features.blogs.
-export const blogs: Blog[] = [
-  {
-    category: "ENGINEERING",
-    date: "Coming soon",
-    title: "A post title that hints at a strong opinion or lesson",
-    excerpt:
-      "One or two lines that make someone want to click. Write it like a hook.",
-    url: "#",
-  },
-];
+export const blogs: Blog[] = [];
 
 export const contactLinks = [
   {

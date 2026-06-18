@@ -14,10 +14,15 @@ pnpm install
 pnpm dev          # http://localhost:5173
 pnpm build        # type-check + prerender + production build to /dist
 pnpm preview      # serve the built site
+pnpm lint         # ESLint (typescript-eslint + react-hooks)
 pnpm refresh:github   # refresh the GitHub Pulse data snapshot
 ```
 
 ## Deploy
+
+Pushing to `main` triggers GitHub Actions (`.github/workflows/deploy.yml`),
+which typechecks, lints, builds, and deploys to Cloudflare Workers Static
+Assets (gabebryk.com). To deploy manually:
 
 ```bash
 pnpm build && pnpm exec wrangler deploy   # Cloudflare Workers (gabebryk.com)
@@ -28,12 +33,13 @@ pnpm build && pnpm exec wrangler deploy   # Cloudflare Workers (gabebryk.com)
 Everything is content-driven from a single file:
 
 - **`src/data/content.ts`** — name, role, tagline, links, skills, projects,
-  experience, blogs, contact. Edit text and URLs here; the components render it.
-- **`index.html`** — page `<title>` and meta description.
+  experience, education, blogs, contact. Edit text and URLs here; the
+  components render it.
+- **`index.html`** — page `<title>`, meta description, and JSON-LD `Person`
+  schema.
 - **Images** — drop files in `public/`:
-  - `public/portrait.jpg` — about-section photo (4:5)
+  - `public/portrait.webp` — about-section photo (4:5)
   - `public/projects/*.png` — project thumbnails (paths set in `content.ts`)
-  - `public/resume.pdf` — linked by the hero RESUME button
   Missing images fall back to a labeled placeholder, so nothing breaks if absent.
 
 ## Structure
@@ -45,15 +51,17 @@ src/
   index.css               # Tailwind v4 theme tokens (colors, fonts)
   components/
     Navbar, Hero, About, Skills, Projects,
-    Experience, GitHubPulse, Blogs, Contact, Footer
+    Experience, Education, GitHubPulse, Blogs, Contact, Footer
     Section.tsx           # shared eyebrow + heading shell
     Reveal.tsx            # scroll-in animation wrapper
+    ImageWithFallback.tsx # <img> with a declarative placeholder fallback
 ```
 
 ## Notes
 
-- **GitHub Pulse** shows a deterministic placeholder heatmap and `—` stats.
-  Wire it to the GitHub API to show real contributions (see comment in
-  `components/GitHubPulse.tsx`).
+- **GitHub Pulse** shows real contribution data (followers, public repos, and
+  a last-12-months contribution heatmap including private commits) from a
+  committed snapshot in `src/data/github.ts`. Refresh it with
+  `pnpm refresh:github` (see `scripts/refresh-github.mjs`).
 - Theme colors live as CSS variables in `src/index.css` under `@theme`.
   The default palette is monochrome with a green activity accent.

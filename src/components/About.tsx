@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Section from "./Section";
 import Reveal from "./Reveal";
+import ImageWithFallback from "./ImageWithFallback";
 import { about, profile } from "../data/content";
 
 export default function About() {
@@ -9,19 +10,13 @@ export default function About() {
       <div className="grid gap-12 md:grid-cols-[320px_1fr] md:gap-16">
         <Reveal>
           <div className="relative">
-            <img
+            <ImageWithFallback
               src={about.photo}
               alt={`${profile.firstName} ${profile.lastName}`}
               className="aspect-[4/5] w-full rounded-lg border border-line object-cover"
-              onError={(e) => {
-                // graceful placeholder until you add /portrait.webp
-                e.currentTarget.style.display = "none";
-                e.currentTarget.nextElementSibling?.classList.remove("hidden");
-              }}
+              fallbackClassName="flex aspect-[4/5] w-full items-center justify-center rounded-lg border border-dashed border-line bg-black/[0.02] text-xs tracking-widest text-muted"
+              fallback="ADD /portrait.webp"
             />
-            <div className="hidden aspect-[4/5] w-full items-center justify-center rounded-lg border border-dashed border-line bg-black/[0.02] text-xs tracking-widest text-muted">
-              ADD /portrait.webp
-            </div>
           </div>
         </Reveal>
 

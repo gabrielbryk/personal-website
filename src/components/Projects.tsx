@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Github, ArrowUpRight } from "lucide-react";
 import Section from "./Section";
 import Reveal from "./Reveal";
+import ImageWithFallback from "./ImageWithFallback";
 import { projects } from "../data/content";
 
 const filters = ["All", "Product", "Tooling", "Infra"] as const;
@@ -46,18 +47,13 @@ export default function Projects() {
           <Reveal key={p.title} delay={i * 0.06}>
             <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-line transition-colors hover:border-ink">
               <div className="relative aspect-[16/10] overflow-hidden bg-black/[0.03]">
-                <img
+                <ImageWithFallback
                   src={p.image}
                   alt={p.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                    e.currentTarget.nextElementSibling?.classList.remove("hidden");
-                  }}
+                  fallbackClassName="flex h-full w-full items-center justify-center text-xs tracking-widest text-muted"
+                  fallback={p.image}
                 />
-                <div className="hidden h-full w-full items-center justify-center text-xs tracking-widest text-muted">
-                  {p.image}
-                </div>
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="eyebrow text-muted">{p.tag}</span>
