@@ -20,7 +20,7 @@ export default function Contact() {
                 href={link.href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="group grid grid-cols-[40px_1fr_auto] items-center gap-4 border-t border-line py-7 transition-colors hover:bg-black/[0.02] md:gap-8"
+                className="group grid grid-cols-[40px_1fr_auto] items-center gap-4 border-t border-line py-7 transition-colors hover:bg-ink/[0.04] md:gap-8"
               >
                 <span className="text-sm font-bold text-muted">{link.index}</span>
                 <span className="text-2xl font-black tracking-tight md:text-4xl">

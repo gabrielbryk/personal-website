@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode: `dark:` variants key off a `.dark` class on
+   <html> (set by the pre-paint script in index.html and the Navbar toggle). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --color-ink: #000000;
@@ -7,6 +11,18 @@
   --color-muted: #6b7280;
   --color-line: #e5e5e5;
   --color-accent: #16a34a;
+}
+
+/* Dark-mode token overrides. Components reference the --color-* tokens via
+   text-ink / bg-paper / border-line / text-muted, so overriding the vars
+   flips most of the UI automatically. Accent green is kept; values are tuned
+   for WCAG AA contrast on the near-black paper. */
+.dark {
+  --color-ink: #f5f5f5;
+  --color-paper: #0a0a0a;
+  --color-muted: #9ca3af;
+  --color-line: #262626;
+  --color-accent: #22c55e;
 }
 
 @layer base {
@@ -41,4 +57,73 @@
   font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+}
+
+/* ---- Scroll-in reveal (replaces Motion's whileInView) ----
+   Reveal.tsx toggles `.is-visible` via an IntersectionObserver. The initial
+   hidden state is deterministic CSS, so server and client markup match and
+   hydration stays clean. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s,
+    transform 0.6s;
+  transition-timing-function: cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Hero mount entrance (replaces Motion's per-element animate) ----
+   Each element fades + rises in sequence via animation-delay (set inline). */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-enter {
+  opacity: 0;
+  animation: fade-up 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+
+/* ---- Reduced motion: collapse all entrance/scroll/hover motion ----
+   One block disables the reveal transition, the Hero entrance + availability
+   ping, and the hover/group-hover translate transforms used site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    animation: none;
+  }
+
+  .animate-ping {
+    animation: none;
+  }
+
+  /* Neutralize Tailwind's hover/group-hover translate transforms. */
+  .hover\:-translate-y-0\.5:hover,
+  .group:hover .group-hover\:translate-x-0\.5,
+  .group:hover .group-hover\:-translate-y-0\.5,
+  .group:hover .group-hover\:translate-x-1,
+  .group:hover .group-hover\:scale-105 {
+    transform: none;
+  }
 }

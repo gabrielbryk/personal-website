@@ -6,7 +6,7 @@ import { github } from "../data/github";
 
 // Color ramp for contribution intensity (0 = none … 4 = heaviest).
 const LEVELS = [
-  "bg-black/[0.04]",
+  "bg-ink/[0.06]",
   "bg-accent/30",
   "bg-accent/55",
   "bg-accent/80",

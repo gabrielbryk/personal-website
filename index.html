@@ -3,6 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- No-FOUC theme: apply the stored/system theme before first paint, so the
+         page never flashes the wrong colors. Runs before any stylesheet. The
+         Navbar toggle reads this class back in an effect to avoid a mismatch. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var dark =
+            stored === "dark" ||
+            (!stored &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", dark ? "#0a0a0a" : "#ffffff");
+        } catch (e) {}
+      })();
+    </script>
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -63,9 +80,9 @@
       }
     </script>
     <noscript>
-      <!-- Content is prerendered but starts visually hidden via Motion's
-           initial opacity/transform state until JS hydrates. For no-JS
-           visitors and JS-light crawlers, force it visible. -->
+      <!-- Content is prerendered but starts visually hidden via the CSS
+           reveal/entrance initial state (opacity:0) until JS toggles it in.
+           For no-JS visitors and JS-light crawlers, force it visible. -->
       <style>
         #root * {
           opacity: 1 !important;

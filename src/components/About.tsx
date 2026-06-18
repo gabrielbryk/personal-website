@@ -13,8 +13,10 @@ export default function About() {
             <ImageWithFallback
               src={about.photo}
               alt={`${profile.firstName} ${profile.lastName}`}
+              width={900}
+              height={900}
               className="aspect-[4/5] w-full rounded-lg border border-line object-cover"
-              fallbackClassName="flex aspect-[4/5] w-full items-center justify-center rounded-lg border border-dashed border-line bg-black/[0.02] text-xs tracking-widest text-muted"
+              fallbackClassName="flex aspect-[4/5] w-full items-center justify-center rounded-lg border border-dashed border-line bg-ink/[0.03] text-xs tracking-widest text-muted"
               fallback="ADD /portrait.webp"
             />
           </div>

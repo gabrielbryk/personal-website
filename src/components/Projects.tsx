@@ -46,10 +46,12 @@ export default function Projects() {
         {visible.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06}>
             <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-line transition-colors hover:border-ink">
-              <div className="relative aspect-[16/10] overflow-hidden bg-black/[0.03]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-ink/[0.03]">
                 <ImageWithFallback
                   src={p.image}
                   alt={p.title}
+                  width={1600}
+                  height={1000}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   fallbackClassName="flex h-full w-full items-center justify-center text-xs tracking-widest text-muted"
                   fallback={p.image}

@@ -89,7 +89,7 @@ export const projects: Project[] = [
     tag: "CO-FOUNDER & CTO",
     description:
       "Multi-tenant B2B SaaS for commercial EV-fleet charging — smart-charging optimization (up to 30% cost reduction), real-time monitoring, and predictive analytics.",
-    image: "/projects/gridlink.png",
+    image: "/projects/gridlink.webp",
     liveUrl: "https://gridlink.co",
   },
   {
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     tag: "DEVELOPER TOOLING",
     description:
       "Claude Code plugin + Cloudflare Worker that renders agent output as styled HTML pages — shadcn/ui, Mermaid, charts, search, versioning.",
-    image: "/projects/agent-html.png",
+    image: "/projects/agent-html.webp",
     repoUrl: "https://github.com/gabrielbryk/agent-html",
     liveUrl: "https://share.gridlink.dev",
   },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     tag: "AI AGENTS",
     description:
       "Personal LangGraph.js agents, self-hosted and deployed via Coolify.",
-    image: "/projects/agents.png",
+    image: "/projects/agents.webp",
     repoUrl: "https://github.com/gabrielbryk/agents",
     liveUrl: "https://agents.gabebryk.com",
   },
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     tag: "SELF-HOSTED",
     description:
       "Self-hosted speedtest tracker with first-class VPN context. Bun + Hono + SQLite + HTMX.",
-    image: "/projects/speedwatch.png",
+    image: "/projects/speedwatch.webp",
     repoUrl: "https://github.com/gabrielbryk/speedwatch",
   },
   {
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     category: "Infra",
     tag: "INFRASTRUCTURE",
     description: "Live status page with uptime monitoring and response-time history for production services.",
-    image: "/projects/status.png",
+    image: "/projects/status.webp",
     repoUrl: "https://github.com/gabrielbryk/vigilant-octo-carnival",
     liveUrl: "https://status.gridlink.co",
   },

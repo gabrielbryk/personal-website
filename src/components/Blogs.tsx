@@ -11,7 +11,7 @@ export default function Blogs() {
           <Reveal key={post.title} delay={i * 0.06}>
             <a
               href={post.url}
-              className="group grid gap-4 border-t border-line py-8 transition-colors hover:bg-black/[0.02] md:grid-cols-[80px_180px_1fr_auto] md:items-center md:gap-8"
+              className="group grid gap-4 border-t border-line py-8 transition-colors hover:bg-ink/[0.04] md:grid-cols-[80px_180px_1fr_auto] md:items-center md:gap-8"
             >
               <span className="text-sm font-bold text-muted">
                 // {String(i + 1).padStart(2, "0")}

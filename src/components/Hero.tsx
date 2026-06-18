@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { profile, socials } from "../data/content";
 
@@ -9,58 +8,45 @@ const socialLinks = [
 ];
 
 export default function Hero() {
-  const reduce = useReducedMotion();
-  // Skip the entrance offset when the user prefers reduced motion.
+  // Mount entrance via the `.hero-enter` CSS keyframe; each element is staggered
+  // with an inline animation-delay. Reduced motion is handled in index.css.
   return (
     <section className="relative flex min-h-screen flex-col justify-center px-6 pt-28 pb-16 md:px-12">
       <div className="mx-auto w-full max-w-6xl">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 flex items-center gap-3"
-        >
+        <div className="hero-enter mb-8 flex items-center gap-3">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span className="eyebrow text-muted">{profile.availability}</span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-          className="text-6xl font-black leading-[0.9] tracking-tighter sm:text-7xl md:text-8xl lg:text-9xl"
+        <h1
+          className="hero-enter text-6xl font-black leading-[0.9] tracking-tighter sm:text-7xl md:text-8xl lg:text-9xl"
+          style={{ animationDelay: "0.05s" }}
         >
           {profile.firstName}
           <br />
           {profile.lastName}
-        </motion.h1>
+        </h1>
 
-        <motion.h2
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-6 text-lg font-bold uppercase tracking-[0.3em] text-muted md:text-xl"
+        <h2
+          className="hero-enter mt-6 text-lg font-bold uppercase tracking-[0.3em] text-muted md:text-xl"
+          style={{ animationDelay: "0.15s" }}
         >
           {profile.role}
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-8 max-w-xl text-base leading-relaxed text-ink/80 md:text-lg"
+        <p
+          className="hero-enter mt-8 max-w-xl text-base leading-relaxed text-ink/80 md:text-lg"
+          style={{ animationDelay: "0.25s" }}
         >
           {profile.tagline}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
+        <div
+          className="hero-enter mt-10 flex flex-wrap items-center gap-4"
+          style={{ animationDelay: "0.35s" }}
         >
           <a
             href={`mailto:${profile.email}`}
@@ -77,13 +63,11 @@ export default function Hero() {
           >
             GITHUB
           </a>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-14 flex flex-wrap gap-6"
+        <div
+          className="hero-enter mt-14 flex flex-wrap gap-6"
+          style={{ animationDelay: "0.5s" }}
         >
           {socialLinks.map((s) => (
             <a
@@ -96,7 +80,7 @@ export default function Hero() {
               {s.label}
             </a>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
