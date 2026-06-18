@@ -3,3 +3,6 @@
 allowBuilds:
   esbuild: true
   "@tailwindcss/oxide": true
+  # workerd is wrangler's Worker runtime; its build is required to deploy.
+  workerd: true
+  sharp: true

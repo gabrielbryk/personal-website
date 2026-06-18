@@ -42,8 +42,7 @@ export const about = {
   headline:
     "Building enterprise EV-fleet infrastructure from concept to production — and a steady stream of developer tools on the side.",
   body: "I'm Gabe — co-founder and CTO of GridLink, where I've built the technical foundation of an EV-fleet management platform from concept to production: multi-tenant architecture, smart-charging optimization, and the team behind it. I came up through security engineering at ServiceNow and a Master's in Cybersecurity at Illinois Tech. When I'm not scaling GridLink, I build developer tooling, LLM agents, and self-hosted infrastructure.",
-  // Drop a square-ish photo in public/portrait.jpg or change this path.
-  photo: "/portrait.jpg",
+  photo: "/portrait.webp",
   topSkills: ["TYPESCRIPT", "REACT", "NESTJS", "GRAPHQL", "AWS", "+14 MORE"],
 };
 
