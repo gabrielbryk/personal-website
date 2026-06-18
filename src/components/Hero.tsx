@@ -70,10 +70,12 @@ export default function Hero() {
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
-            href={profile.resumeUrl}
+            href={socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-ink px-7 py-3 text-sm font-semibold tracking-wide transition-colors hover:bg-ink hover:text-paper"
           >
-            RESUME
+            GITHUB
           </a>
         </motion.div>
 

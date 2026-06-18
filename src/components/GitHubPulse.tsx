@@ -1,10 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { socials } from "../data/content";
+import { github } from "../data/github";
 
-// Placeholder contribution heatmap. Deterministic so the layout is stable.
-// To show real data, fetch from the GitHub API (or a contributions endpoint)
-// and replace `weeks` with live counts. 53 weeks x 7 days.
+// Color ramp for contribution intensity (0 = none … 4 = heaviest).
 const LEVELS = [
   "bg-black/[0.04]",
   "bg-accent/30",
@@ -13,18 +12,23 @@ const LEVELS = [
   "bg-accent",
 ];
 
-const weeks = Array.from({ length: 53 }, (_, w) =>
-  Array.from({ length: 7 }, (_, d) => {
-    // cheap deterministic pseudo-noise — no randomness needed
-    const n = (w * 7 + d) * 1103515245 + 12345;
-    return Math.abs(n >> 16) % 5;
-  }),
-);
+// Map a daily contribution count to a 0–4 intensity level.
+function level(count: number): number {
+  if (count <= 0) return 0;
+  if (count <= 2) return 1;
+  if (count <= 5) return 2;
+  if (count <= 9) return 3;
+  return 4;
+}
 
 const stats = [
-  { label: "FOLLOWERS", value: "—" },
-  { label: "COMMITS", value: "—" },
-  { label: "REPOS", value: "—" },
+  { label: "FOLLOWERS", value: github.followers.toLocaleString() },
+  {
+    label: "CONTRIBUTIONS",
+    value: github.totalContributions.toLocaleString(),
+    note: "last 12 months",
+  },
+  { label: "PUBLIC REPOS", value: github.publicRepos.toLocaleString() },
 ];
 
 export default function GitHubPulse() {
@@ -56,7 +60,12 @@ export default function GitHubPulse() {
             {stats.map((s) => (
               <div key={s.label} className="rounded-lg border border-line p-5">
                 <span className="eyebrow text-muted">{s.label}</span>
-                <p className="mt-2 text-3xl font-black tracking-tight">{s.value}</p>
+                <p className="mt-2 text-3xl font-black tracking-tight">
+                  {s.value}
+                </p>
+                {s.note && (
+                  <span className="mt-1 block text-xs text-muted">{s.note}</span>
+                )}
               </div>
             ))}
           </div>
@@ -65,12 +74,13 @@ export default function GitHubPulse() {
         <Reveal delay={0.2}>
           <div className="mt-8 overflow-x-auto rounded-lg border border-line p-5">
             <div className="flex gap-1">
-              {weeks.map((week, w) => (
+              {github.weeks.map((week, w) => (
                 <div key={w} className="flex flex-col gap-1">
-                  {week.map((level, d) => (
+                  {week.map((count, d) => (
                     <span
                       key={d}
-                      className={`h-3 w-3 rounded-sm ${LEVELS[level]}`}
+                      title={`${count} contribution${count === 1 ? "" : "s"}`}
+                      className={`h-3 w-3 rounded-sm ${LEVELS[level(count)]}`}
                     />
                   ))}
                 </div>

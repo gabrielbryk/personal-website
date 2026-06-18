@@ -17,7 +17,6 @@ export const profile = {
   location: "Chicago, IL",
   status: "Co-Founder & CTO @ GridLink",
   email: "gbryk11@gmail.com",
-  resumeUrl: "/resume.pdf", // TODO: export your resume to public/resume.pdf
   initials: "GABE • BRYK",
   kicker: "CTO & BUILDER",
 };
