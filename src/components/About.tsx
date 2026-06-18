@@ -14,17 +14,14 @@ export default function About() {
               alt={`${profile.firstName} ${profile.lastName}`}
               className="aspect-[4/5] w-full rounded-lg border border-line object-cover"
               onError={(e) => {
-                // graceful placeholder until you add /portrait.jpg
+                // graceful placeholder until you add /portrait.webp
                 e.currentTarget.style.display = "none";
                 e.currentTarget.nextElementSibling?.classList.remove("hidden");
               }}
             />
             <div className="hidden aspect-[4/5] w-full items-center justify-center rounded-lg border border-dashed border-line bg-black/[0.02] text-xs tracking-widest text-muted">
-              ADD /portrait.jpg
+              ADD /portrait.webp
             </div>
-            <span className="absolute left-3 top-3 eyebrow rounded bg-paper/80 px-2 py-1 text-muted backdrop-blur">
-              {about.version}
-            </span>
           </div>
         </Reveal>
 

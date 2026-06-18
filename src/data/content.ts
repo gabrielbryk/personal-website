@@ -37,7 +37,6 @@ export const nav = [
 ];
 
 export const about = {
-  version: "V.26",
   badge: "CO-FOUNDER & CTO · TECHSTARS '23",
   headline:
     "Building enterprise EV-fleet infrastructure from concept to production — and a steady stream of developer tools on the side.",
