@@ -5,7 +5,7 @@ import { profile, socials } from "../data/content";
 const socialLinks = [
   { label: "LINKEDIN", href: socials.linkedin },
   { label: "GITHUB", href: socials.github },
-  { label: "TWITTER", href: socials.twitter },
+  { label: "WEBSITE", href: socials.website },
 ];
 
 export default function Hero() {

@@ -1,29 +1,32 @@
 // ─────────────────────────────────────────────────────────────────────────
-// EDIT THIS FILE to make the site yours. Every section reads from here.
-// Placeholder content is marked with TODO. Replace text, links, and images.
+// Site content. Edit here — every section reads from this file.
 // ─────────────────────────────────────────────────────────────────────────
 
+// Feature flags. Components stay in the codebase; flip to show/hide.
+export const features = {
+  blogs: false, // Blogs section + nav link hidden on the live site (no posts yet).
+};
+
 export const profile = {
-  firstName: "YOUR",
-  lastName: "NAME",
-  role: "ROLE & TITLE", // e.g. "Designer & Developer"
+  firstName: "GABE",
+  lastName: "BRYK",
+  role: "CO-FOUNDER & CTO @ GRIDLINK",
   tagline:
-    "One-line statement about what you build and the value you bring. Keep it sharp and specific.",
-  availability: "AVAILABLE FOR PROJECTS",
-  location: "City, Country",
-  status: "Open to Work",
-  email: "you@example.com",
-  resumeUrl: "/resume.pdf", // drop a resume.pdf in /public, or change this
-  initials: "YN • SURNAME",
-  kicker: "DIGITAL CREATOR",
+    "Co-Founder & CTO at GridLink, building B2B EV-fleet infrastructure from the ground up. Off the clock: developer tools, AI agents, and self-hosted systems.",
+  availability: "OPEN TO COLLABORATION",
+  location: "Chicago, IL",
+  status: "Co-Founder & CTO @ GridLink",
+  email: "gbryk11@gmail.com",
+  resumeUrl: "/resume.pdf", // TODO: export your resume to public/resume.pdf
+  initials: "GABE • BRYK",
+  kicker: "CTO & BUILDER",
 };
 
 export const socials = {
-  linkedin: "https://www.linkedin.com/in/your-handle",
-  github: "https://github.com/your-handle",
-  twitter: "https://twitter.com/your-handle",
-  figma: "https://figma.com/@your-handle",
-  githubUser: "your-handle", // used by the GitHub pulse section
+  linkedin: "https://www.linkedin.com/in/gabriel-bryk-630039139/",
+  github: "https://github.com/gabrielbryk",
+  website: "https://gabebryk.com",
+  githubUser: "gabrielbryk",
 };
 
 export const nav = [
@@ -31,87 +34,104 @@ export const nav = [
   { label: "SKILLS", href: "#skills" },
   { label: "PROJECTS", href: "#projects" },
   { label: "EXPERIENCE", href: "#experience" },
-  { label: "BLOGS", href: "#blogs" },
   { label: "CONNECT", href: "#connect" },
 ];
 
 export const about = {
   version: "V.26",
-  badge: "THE DIGITAL ARCHITECT",
+  badge: "CO-FOUNDER & CTO · TECHSTARS '23",
   headline:
-    "A short, confident sentence describing your craft and the kind of work you focus on.",
-  body: "Two or three sentences of bio. Who you are, where you're based, and the through-line that connects your design and engineering work. Keep it human.",
-  // Drop a square photo in /public/portrait.jpg or change this path.
+    "Building enterprise EV-fleet infrastructure from concept to production — and a steady stream of developer tools on the side.",
+  body: "I'm Gabe — co-founder and CTO of GridLink, where I've built the technical foundation of an EV-fleet management platform from concept to production: multi-tenant architecture, smart-charging optimization, and the team behind it. I came up through security engineering at ServiceNow and a Master's in Cybersecurity at Illinois Tech. When I'm not scaling GridLink, I build developer tooling, LLM agents, and self-hosted infrastructure.",
+  // Drop a square-ish photo in public/portrait.jpg or change this path.
   photo: "/portrait.jpg",
-  topSkills: ["REACT", "TYPESCRIPT", "FIGMA", "NODE", "TAILWIND", "+5 MORE"],
+  topSkills: ["TYPESCRIPT", "REACT", "NESTJS", "GRAPHQL", "AWS", "+14 MORE"],
 };
 
 // Tech-stack chips for the "Inventory" section.
 export const skills: string[] = [
-  "React",
   "TypeScript",
   "JavaScript",
-  "HTML",
-  "CSS",
-  "Tailwind",
-  "Node.js",
   "Python",
+  "React",
+  "Next.js",
+  "Node.js",
+  "NestJS",
+  "GraphQL",
+  "Hono",
+  "Bun",
   "PostgreSQL",
-  "MongoDB",
-  "Git",
-  "GitHub",
-  "Figma",
-  "Docker",
+  "Prisma",
+  "Qdrant",
   "AWS",
-  "Prototyping",
-  "Design Systems",
-  "CI/CD",
+  "AWS CDK",
+  "Docker",
+  "Cloudflare Workers",
+  "GitHub Actions",
+  "Nx",
+  "LLMs / RAG",
+  "LangGraph",
+  "Cryptography",
+  "Self-Hosting",
 ];
 
 export type Project = {
   title: string;
-  category: "Web" | "Design";
-  tag: string; // small uppercase label, e.g. "DEVELOPMENT"
+  category: "Product" | "Tooling" | "Infra";
+  tag: string; // small uppercase label
   description: string;
-  image: string; // path in /public or remote URL
+  image: string; // path in public/ or remote URL
   repoUrl?: string;
   liveUrl?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "Project One",
-    category: "Web",
-    tag: "DEVELOPMENT",
-    description: "One line on what it is and why it's interesting.",
-    image: "/projects/project-1.png",
-    repoUrl: "https://github.com/your-handle/project-one",
-    liveUrl: "https://project-one.example.com",
+    title: "GridLink",
+    category: "Product",
+    tag: "CO-FOUNDER & CTO",
+    description:
+      "Multi-tenant B2B SaaS for commercial EV-fleet charging — smart-charging optimization (up to 30% cost reduction), real-time monitoring, and predictive analytics.",
+    image: "/projects/gridlink.png",
+    liveUrl: "https://gridlink.co",
   },
   {
-    title: "Project Two",
-    category: "Design",
-    tag: "VISUAL DESIGN",
-    description: "A design exploration — describe the concept in a sentence.",
-    image: "/projects/project-2.png",
-    liveUrl: "https://www.figma.com/your-file",
+    title: "agent-html",
+    category: "Tooling",
+    tag: "DEVELOPER TOOLING",
+    description:
+      "Claude Code plugin + Cloudflare Worker that renders agent output as styled HTML pages — shadcn/ui, Mermaid, charts, search, versioning.",
+    image: "/projects/agent-html.png",
+    repoUrl: "https://github.com/gabrielbryk/agent-html",
+    liveUrl: "https://share.gabebryk.com",
   },
   {
-    title: "Project Three",
-    category: "Web",
-    tag: "DEVELOPMENT",
-    description: "Another build worth showing. Keep descriptions tight.",
-    image: "/projects/project-3.png",
-    repoUrl: "https://github.com/your-handle/project-three",
-    liveUrl: "https://project-three.example.com",
+    title: "agents",
+    category: "Tooling",
+    tag: "AI AGENTS",
+    description:
+      "Personal LangGraph.js agents, self-hosted and deployed via Coolify.",
+    image: "/projects/agents.png",
+    repoUrl: "https://github.com/gabrielbryk/agents",
+    liveUrl: "https://agents.gabebryk.com",
   },
   {
-    title: "Project Four",
-    category: "Design",
-    tag: "VISUAL DESIGN",
-    description: "A hero banner / UI concept. Replace with your real work.",
-    image: "/projects/project-4.png",
-    liveUrl: "https://www.figma.com/your-file",
+    title: "speedwatch",
+    category: "Infra",
+    tag: "SELF-HOSTED",
+    description:
+      "Self-hosted speedtest tracker with first-class VPN context. Bun + Hono + SQLite + HTMX.",
+    image: "/projects/speedwatch.png",
+    repoUrl: "https://github.com/gabrielbryk/speedwatch",
+  },
+  {
+    title: "Status Page",
+    category: "Infra",
+    tag: "INFRASTRUCTURE",
+    description: "Uptime monitor and status page for my self-hosted services, powered by Upptime.",
+    image: "/projects/status.png",
+    repoUrl: "https://github.com/gabrielbryk/vigilant-octo-carnival",
+    liveUrl: "https://status.gabebryk.com",
   },
 ];
 
@@ -126,28 +146,28 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "COMPANY NAME",
-    title: "YOUR ROLE",
-    duration: "Mon 20XX — Mon 20XX",
-    location: "Remote",
+    company: "GRIDLINK",
+    title: "CO-FOUNDER & CTO · TECHSTARS '23",
+    duration: "Jan 2023 — Present",
+    location: "Chicago, IL",
     points: [
-      "Impact-driven bullet: what you did and the measurable result.",
-      "Second bullet: a system you built or improved, with a number if you can.",
-      "Third bullet: a skill or outcome that sets you apart.",
+      "Built the technical foundation from concept to market-ready product; led technical due diligence for a $500K pre-seed round.",
+      "Architected a multi-tenant platform serving enterprise fleet clients — React/TS frontend, NestJS + GraphQL backend, PostgreSQL/Prisma on AWS.",
+      "Built and mentored cross-functional engineering teams including 8 interns; pioneered AI-assisted development workflows.",
+      "Shipped smart-charging optimization (CBC solver) demonstrating up to 30% charging-cost reduction.",
     ],
-    tools: "TOOL, TOOL, TOOL, +3 MORE",
+    tools: "REACT, TYPESCRIPT, NESTJS, GRAPHQL, POSTGRES, AWS CDK, +6 MORE",
   },
   {
-    company: "EARLIER COMPANY",
-    title: "YOUR ROLE",
-    duration: "Mon 20XX — Mon 20XX",
-    location: "City, Country",
+    company: "SERVICENOW",
+    title: "PLATFORM ENGINEER INTERN · SECURITY",
+    duration: "Summers 2021 & 2022",
+    location: "Remote / Chicago, IL",
     points: [
-      "What you owned and shipped here.",
-      "A quantified win — velocity, cost, adoption, reliability.",
-      "Something you automated or simplified.",
+      "Refactored core cryptographic modules (asymmetric and symmetric operations) to improve extensibility for new algorithms.",
+      "Built a standalone code-signing CLI supporting P12, JCEKS, and JKS keystores so clients could self-sign applications.",
     ],
-    tools: "TOOL, TOOL, TOOL, +5 MORE",
+    tools: "JAVA, CRYPTOGRAPHY, CODE SIGNING, CLI",
   },
 ];
 
@@ -159,34 +179,27 @@ export type Blog = {
   url: string;
 };
 
+// Kept for when there's writing to publish. Section is hidden via features.blogs.
 export const blogs: Blog[] = [
   {
     category: "ENGINEERING",
-    date: "Feb 4, 2026",
+    date: "Coming soon",
     title: "A post title that hints at a strong opinion or lesson",
     excerpt:
       "One or two lines that make someone want to click. Write it like a hook.",
     url: "#",
   },
-  {
-    category: "DESIGN",
-    date: "Jan 5, 2026",
-    title: "Another piece — share something you learned the hard way",
-    excerpt: "A short teaser describing what the reader will take away.",
-    url: "#",
-  },
-  {
-    category: "CAREER",
-    date: "Jan 2, 2026",
-    title: "A third entry to round out the section",
-    excerpt: "Keep these punchy. Replace with links to your real writing.",
-    url: "#",
-  },
 ];
 
 export const contactLinks = [
-  { index: "01", label: "EMAIL", action: "SEND MAIL", get href() { return `mailto:${profile.email}`; } },
-  { index: "02", label: "LINKEDIN", action: "NETWORK", href: socials.linkedin },
+  {
+    index: "01",
+    label: "EMAIL",
+    action: "SEND MAIL",
+    get href() {
+      return `mailto:${profile.email}`;
+    },
+  },
+  { index: "02", label: "LINKEDIN", action: "CONNECT", href: socials.linkedin },
   { index: "03", label: "GITHUB", action: "SOURCE", href: socials.github },
-  { index: "04", label: "FIGMA", action: "CANVAS", href: socials.figma },
 ];

@@ -4,7 +4,7 @@ import Section from "./Section";
 import Reveal from "./Reveal";
 import { projects } from "../data/content";
 
-const filters = ["All", "Web", "Design"] as const;
+const filters = ["All", "Product", "Tooling", "Infra"] as const;
 type Filter = (typeof filters)[number];
 
 export default function Projects() {
@@ -20,8 +20,8 @@ export default function Projects() {
       <Reveal>
         <div className="mb-10 flex flex-wrap items-center justify-between gap-6">
           <p className="max-w-xl text-sm leading-relaxed text-muted">
-            A selection of recent work — replace these with your own projects in{" "}
-            <code className="text-ink">src/data/content.ts</code>.
+            A flagship product, the developer tools I build on the side, and the
+            infrastructure that keeps it all running.
           </p>
           <div className="flex gap-2">
             {filters.map((f) => (
