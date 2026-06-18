@@ -6,11 +6,21 @@ pattern (big bold hero, wide-tracked uppercase labels, sectioned long-scroll).
 
 ## Develop
 
+Uses [pnpm](https://pnpm.io). Build scripts for native deps (esbuild) are
+allow-listed in `pnpm-workspace.yaml`.
+
 ```bash
-npm install
-npm run dev      # http://localhost:5173
-npm run build    # type-check + production build to /dist
-npm run preview  # serve the built site
+pnpm install
+pnpm dev          # http://localhost:5173
+pnpm build        # type-check + prerender + production build to /dist
+pnpm preview      # serve the built site
+pnpm refresh:github   # refresh the GitHub Pulse data snapshot
+```
+
+## Deploy
+
+```bash
+pnpm build && pnpm exec wrangler deploy   # Cloudflare Workers (gabebryk.com)
 ```
 
 ## Make it yours

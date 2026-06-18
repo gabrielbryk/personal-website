@@ -1,0 +1,5 @@
+# Allow these dependencies to run install/build scripts (pnpm blocks by default).
+# esbuild compiles its native binary used by Vite.
+allowBuilds:
+  esbuild: true
+  "@tailwindcss/oxide": true
