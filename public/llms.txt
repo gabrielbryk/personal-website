@@ -1,0 +1,13 @@
+# Gabe Bryk
+
+> Co-Founder & CTO at GridLink (Techstars '23), building B2B EV-fleet infrastructure from the ground up. Also builds developer tools, AI agents, and self-hosted systems. Based in Chicago, IL.
+
+## About
+- Co-Founder & CTO at GridLink — multi-tenant B2B SaaS for commercial EV-fleet charging (smart-charging optimization, real-time monitoring, predictive analytics).
+- Background: security engineering at ServiceNow; M.S. Cybersecurity, Illinois Institute of Technology.
+- Off the clock: developer tooling, LLM agents, and self-hosted infrastructure.
+
+## Links
+- [Portfolio](https://gabebryk.com/)
+- [GitHub](https://github.com/gabrielbryk)
+- [LinkedIn](https://www.linkedin.com/in/gabriel-bryk-630039139/)

@@ -61,7 +61,7 @@ export default function Projects() {
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="eyebrow text-muted">{p.tag}</span>
-                <h4 className="mt-2 text-xl font-bold">{p.title}</h4>
+                <h3 className="mt-2 text-xl font-bold">{p.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                   {p.description}
                 </p>
